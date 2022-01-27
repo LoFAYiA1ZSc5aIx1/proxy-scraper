@@ -22,7 +22,7 @@ while h != i+1:
         elif json_data[b]['type'] == 4:
             g.append(json_data[b]['addr'])
         else:
-            print('wtf')
+            print('garbage value')
         b = b + 1
     h = h + 1
     b = 0
