@@ -26,6 +26,10 @@ while h != i+1:
     h = h + 1
     b = 0
 
+c = list(dict.fromkeys(c))
+d = list(dict.fromkeys(d))
+g = list(dict.fromkeys(g))
+
 with open('http.txt','w') as f:
     for x in c:
         f.write(x+'\n')
