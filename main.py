@@ -4,6 +4,7 @@ from datetime import datetime
 
 i = int(datetime.now().strftime('%d'))
 j = int(datetime.now().strftime('%m'))
+k = int(datetime.now().strftime('%Y'))
 h = i-10
 b = 0
 c = []
@@ -11,7 +12,7 @@ d = []
 g = []
 
 while h != i+1:
-    a = requests.get('https://checkerproxy.net/api/archive/2022-{}-{}'.format(j,str(h))).text
+    a = requests.get('https://checkerproxy.net/api/archive/{}-{}-{}'.format(k,j,str(h))).text
     json_data = json.loads(a)
     for x in json_data:
         if json_data[b]['type'] == 1:
