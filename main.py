@@ -16,18 +16,21 @@ while h != i+1:
     a = requests.get('https://checkerproxy.net/api/archive/{}-{}-{}'.format(k,j,str(h))).text
     json_data = json.loads(a)
     for x in json_data:
-        if x['ip'] in ['127.0.0.1','172.18.0.1']:
-            m.append(x['addr'])
-        else:
-            if json_data[b]['type'] == 1:
-                c.append(json_data[b]['addr'])
-            elif json_data[b]['type'] == 2:
-                d.append(json_data[b]['addr'])
-            elif json_data[b]['type'] == 4:
-                g.append(json_data[b]['addr'])
+        try:
+            if x['ip'] in ['127.0.0.1','172.18.0.1']:
+                m.append(x['addr'])
             else:
-                print('garbage value')
-            b = b + 1
+                if json_data[b]['type'] == 1:
+                    c.append(json_data[b]['addr'])
+                elif json_data[b]['type'] == 2:
+                    d.append(json_data[b]['addr'])
+                elif json_data[b]['type'] == 4:
+                    g.append(json_data[b]['addr'])
+                else:
+                    print('garbage value')
+                b = b + 1
+        except:
+            pass
     h = h + 1
     b = 0
 
